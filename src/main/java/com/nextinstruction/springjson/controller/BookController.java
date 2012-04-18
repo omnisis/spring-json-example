@@ -2,21 +2,19 @@ package com.nextinstruction.springjson.controller;
 
 import com.nextinstruction.springjson.domain.Book;
 import com.nextinstruction.springjson.domain.JsonError;
-import org.apache.commons.lang.time.DateUtils;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Arrays;
 
 @Controller
 @RequestMapping("/ajax")
 public class BookController {
 
     @RequestMapping(value = "book/{isbn}", method = RequestMethod.GET)
-        public @ResponseBody Book getBookDetails(@PathVariable String isbn) throws Exception {
+    public
+    @ResponseBody
+    Book getBookDetails(@PathVariable String isbn) throws Exception {
         Book aBook = new Book();
         aBook.setAuthor("Nicholas Sparks");
         aBook.setTitle("The Notebook");
@@ -26,7 +24,9 @@ public class BookController {
     }
 
     @RequestMapping(value = "exception", method = RequestMethod.GET)
-    public @ResponseBody Book getBookDetails()  {
+    public
+    @ResponseBody
+    void getBookDetails() {
         throw new RuntimeException("crap");
     }
 
